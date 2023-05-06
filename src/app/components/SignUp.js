@@ -19,20 +19,14 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 
 export default function SignUp({ supabase }) {
 	const [showPassword, setShowPassword] = useState(false);
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+
 	return (
-		// <Auth.UserContextProvider supabaseClient={supabase}>
-		// 	<Auth
-		// 		supabaseClient={supabase}
-		// 		providers={[]}
-		// 		appearance={{ theme: ThemeSupa }}
-		// 	/>
-		// </Auth.UserContextProvider>
-		<Flex align={'center'} justify={'center'}>
+		<Flex align={'center'} justify={'center'} minH={'85vh'}>
 			<Stack spacing={8} mx={'auto'} maxW={'lg'} py={8} px={6}>
 				<Stack align={'center'}>
-					<Heading fontSize={'4xl'} textAlign={'center'}>
-						Sign up
-					</Heading>
+					<Heading fontSize={'4xl'}>Sign Up</Heading>
 				</Stack>
 				<Box
 					rounded={'lg'}
@@ -40,24 +34,17 @@ export default function SignUp({ supabase }) {
 					boxShadow={'lg'}
 					p={8}
 				>
-					<Stack spacing={4}>
-						<HStack>
-							<Box>
-								<FormControl id='firstName' isRequired>
-									<FormLabel>First Name</FormLabel>
-									<Input type='text' />
-								</FormControl>
-							</Box>
-							<Box>
-								<FormControl id='lastName'>
-									<FormLabel>Last Name</FormLabel>
-									<Input type='text' />
-								</FormControl>
-							</Box>
-						</HStack>
-						<FormControl id='email' isRequired>
+					<Stack spacing={4} width={'380px'}>
+						<FormControl id='email'>
 							<FormLabel>Email address</FormLabel>
-							<Input type='email' />
+							<Input
+								type='email'
+								name='email'
+								onChange={e =>
+									setEmail(e.target.value) &&
+									console.log(email)
+								}
+							/>
 						</FormControl>
 						<FormControl id='password' isRequired>
 							<FormLabel>Password</FormLabel>
@@ -83,22 +70,27 @@ export default function SignUp({ supabase }) {
 								</InputRightElement>
 							</InputGroup>
 						</FormControl>
-						<Stack spacing={10} pt={2}>
+						<Stack spacing={10}>
+							<Stack
+								direction={{ base: 'column', sm: 'row' }}
+								align={'start'}
+								justify={'space-between'}
+							>
+								<Link color={'blue.400'}>Forgot password?</Link>
+							</Stack>
 							<Button
-								loadingText='Submitting'
-								size='lg'
 								bg={'blue.400'}
 								color={'white'}
 								_hover={{
 									bg: 'blue.500'
 								}}
+								type='submit'
+								onClick={console.log('submit')}
 							>
-								Sign up
+								Sign Up
 							</Button>
-						</Stack>
-						<Stack pt={6}>
 							<Text align={'center'}>
-								Already a user?{' '}
+								Have an account?{' '}
 								<Link color={'blue.400'} href='/signin'>
 									Sign In
 								</Link>

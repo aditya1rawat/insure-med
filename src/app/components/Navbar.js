@@ -9,7 +9,6 @@ import {
 	Stack,
 	Collapse,
 	Icon,
-	Link,
 	Popover,
 	PopoverTrigger,
 	PopoverContent,
@@ -23,6 +22,8 @@ import {
 	ChevronDownIcon,
 	ChevronRightIcon
 } from '@chakra-ui/icons';
+
+import { Link } from '@chakra-ui/next-js';
 
 import Image from 'next/image';
 
@@ -64,7 +65,14 @@ export default function Navbar() {
 					flex={{ base: 1 }}
 					justify={{ base: 'center', md: 'start' }}
 				>
-					<Image src='/Logo.png' width={35} height={35} alt='Logo' />
+					<Link href='/' passHref>
+						<Image
+							src='/Logo.png'
+							width={35}
+							height={35}
+							alt='Logo'
+						/>
+					</Link>
 
 					<Flex display={{ base: 'none', md: 'flex' }} ml={10}>
 						<DesktopNav />
@@ -82,7 +90,7 @@ export default function Navbar() {
 						fontSize={'sm'}
 						fontWeight={400}
 						variant={'link'}
-						href={'#'}
+						href={'/signin'}
 					>
 						Sign In
 					</Button>
@@ -93,7 +101,7 @@ export default function Navbar() {
 						fontWeight={600}
 						color={'white'}
 						bg={'pink.400'}
-						href={'#'}
+						href={'/signup'}
 						_hover={{
 							bg: 'pink.300'
 						}}
