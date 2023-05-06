@@ -1,6 +1,3 @@
-// import { Auth, Typography, Button } from '@supabase/auth-ui-react';
-import { ThemeSupa } from '@supabase/auth-ui-shared';
-
 import {
 	Flex,
 	Box,
@@ -20,7 +17,7 @@ import {
 import { useState } from 'react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 
-export default function AuthBasic({ supabase }) {
+export default function SignUp({ supabase }) {
 	const [showPassword, setShowPassword] = useState(false);
 	return (
 		// <Auth.UserContextProvider supabaseClient={supabase}>
@@ -31,14 +28,11 @@ export default function AuthBasic({ supabase }) {
 		// 	/>
 		// </Auth.UserContextProvider>
 		<Flex align={'center'} justify={'center'}>
-			<Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+			<Stack spacing={8} mx={'auto'} maxW={'lg'} py={8} px={6}>
 				<Stack align={'center'}>
 					<Heading fontSize={'4xl'} textAlign={'center'}>
 						Sign up
 					</Heading>
-					<Text fontSize={'lg'} color={'gray.600'}>
-						to enjoy all of our cool features ✌️
-					</Text>
 				</Stack>
 				<Box
 					rounded={'lg'}
@@ -105,7 +99,9 @@ export default function AuthBasic({ supabase }) {
 						<Stack pt={6}>
 							<Text align={'center'}>
 								Already a user?{' '}
-								<Link color={'blue.400'}>Login</Link>
+								<Link color={'blue.400'} href='/signin'>
+									Sign In
+								</Link>
 							</Text>
 						</Stack>
 					</Stack>

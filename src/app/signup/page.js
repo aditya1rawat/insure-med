@@ -2,11 +2,11 @@
 
 import React from 'react';
 
-import { Auth } from '@supabase/auth-ui-react';
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import Account from '../components/account';
-import { ThemeSupa } from '@supabase/auth-ui-shared';
-import AuthBasic from '../components/AuthForm';
+
+import AuthBasic from '../components/SignUp';
+import SignUp from '../components/SignUp';
 
 export default function Page() {
 	const session = useSession();
@@ -28,7 +28,7 @@ export default function Page() {
 						// 	supabaseClient={supabase}
 						// 	appearance={{ theme: ThemeSupa }}
 						// />
-						<AuthBasic supabase={supabase} />
+						<SignUp supabase={supabase} />
 					) : (
 						<Account session={session} />
 					)}
