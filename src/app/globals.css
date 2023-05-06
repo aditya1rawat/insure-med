@@ -54,3 +54,9 @@ body {
 cursor: pointer;
   background-color: rgba(0,0,0,0.3);
 }
+
+.subheadline {
+  color: black;
+  font-size: large;
+  font-family: helvetica;
+}
