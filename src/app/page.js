@@ -9,7 +9,7 @@ export default function Home() {
     <Box>
       <Heading>Insure-Med</Heading>
 
-      <Link href="/landing">this page!</Link>
+      <Link href="/add">this page!</Link>
     </Box>
   );
 }
