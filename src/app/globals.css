@@ -59,4 +59,14 @@ cursor: pointer;
   color: black;
   font-size: 64px;
   font-family: helvetica;
+  font-weight: bold;
+  top: 10%;
+  right: 5%
+}
+
+.signUp {
+  color: black;
+  font-weight: bold;
+  font-family: helvetica;
+  font-size: large;
 }

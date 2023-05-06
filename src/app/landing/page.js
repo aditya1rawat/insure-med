@@ -10,7 +10,7 @@ export default function page() {
     <title>Say goodbye to those big medical bills!</title>
     <p>we cater to all these insurance providers: aksjdkfgdngiods</p>
     <p>Our Mission: xyzabc</p>
-    <p>Interested? Sign up <href>here</href></p>
+    <p class = "signUp">Interested? Sign up <href>here</href></p>
     </body>
       </div>;
 }
