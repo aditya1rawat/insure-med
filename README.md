@@ -1,1 +1,4 @@
-Insure-Med is a user-friendly web application that allows users to easily access a repository of surgery prices based on their insurance coverage and personal information. With Insure-Med, users can quickly search for the cost of a specific surgery, compare prices across different providers, and make informed decisions about their healthcare. The app incorporates user data, such as insurance coverage and location, to provide accurate and personalized pricing information. Insure-Med is a valuable tool for anyone looking to manage their healthcare costs and make informed decisions about their medical treatments.
+# Insure-Med client
+
+- NEXT.js
+- Tailwind CSS

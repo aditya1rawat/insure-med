@@ -1,2 +1,0 @@
-Express JS
-Python
