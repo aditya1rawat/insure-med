@@ -7,8 +7,6 @@ import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import Account from '../components/account';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
 
-import AuthForm from '../components/authForm';
-
 export default function Page() {
 	const session = useSession();
 	const supabase = useSupabaseClient();
