@@ -34,27 +34,6 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-.plusBtn {
-  cursor: pointer;
-  border: 4px solid black;
-  padding: 5px 10px;
-  background-color: transparent;
-  color: rgb(255, 70, 70);
-  border-radius: 100%;
-  font-family: helvetica;
-  border-color: rgb(255, 70, 70);
-  font-weight: bold;
-  font-size: 100%;
-  text-align: center;
-  font-size: 15px;
-}
-
-.plusBtn {
-cursor: pointer;
-  background-color: rgb(255, 70, 70);
-  color: white;
-}
-
 .button {
   cursor: pointer;
   padding: 5px 10px;
