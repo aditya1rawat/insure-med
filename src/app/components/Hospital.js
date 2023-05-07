@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-export default function Hospital() {
+export default function Hospital({ name }) {
   return (
     <div
       style={{
@@ -29,15 +29,11 @@ export default function Hospital() {
           flexDirection: "column",
         }}
       >
-        <p style={{ fontWeight: "bold", fontSize: 25 }}>
-          Newport Beach Hospital
-        </p>
+        <p style={{ fontWeight: "bold", fontSize: 25 }}>{name}</p>
         <p style={{ fontWeight: "bold" }}>
           Price Range:${Math.floor(Math.random() * (3314 - 2298 + 1)) + 2293} -
           ${Math.floor(Math.random() * (7314 - 4298 + 1)) + 4293}
         </p>
-        <p>Location: 1000 Honors</p>
-        <p>+1 949 696 6969</p>
       </div>
     </div>
   );
