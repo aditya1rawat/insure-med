@@ -92,7 +92,7 @@ export default function SplitScreen() {
 					alt={'Landing'}
 					objectFit={'cover'}
 					width={'100%'}
-					src={'/homebgthing.svg'}
+					src={'/Home.svg'}
 				/>
 			</Link>
 		</>
