@@ -20,7 +20,6 @@ import Navbar from '../components/Navbar';
 export default function Page() {
 	return (
 		<>
-			<Navbar />
 			<Flex align={'center'} justify={'center'} minH={'85vh'}>
 				<Stack spacing={8} mx={'auto'} maxW={'lg'} py={8} px={6}>
 					<Stack align={'center'}>
