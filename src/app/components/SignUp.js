@@ -98,7 +98,7 @@ export default function SignUp({ supabase }) {
 										Forgot password?
 									</Link>
 								</Stack>
-								<LinkOverlay href='/' width={'380px'}>
+								<Link href='/' width={'380px'}>
 									<Button
 										bg={'blue.400'}
 										color={'white'}
@@ -109,7 +109,7 @@ export default function SignUp({ supabase }) {
 									>
 										Sign Up
 									</Button>
-								</LinkOverlay>
+								</Link>
 								<Text align={'center'}>
 									Have an account?{' '}
 									<Link color={'blue.400'} href='/signin'>

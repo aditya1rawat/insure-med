@@ -12,7 +12,8 @@ import {
 	Button,
 	Heading,
 	Text,
-	useColorModeValue
+	useColorModeValue,
+	LinkBox
 } from '@chakra-ui/react';
 import Navbar from '../components/Navbar';
 
@@ -55,15 +56,17 @@ export default function Page() {
 										Forgot password?
 									</Link>
 								</Stack>
-								<Button
-									bg={'blue.400'}
-									color={'white'}
-									_hover={{
-										bg: 'blue.500'
-									}}
-								>
-									Sign in
-								</Button>
+								<Link href='/'>
+									<Button
+										bg={'blue.400'}
+										color={'white'}
+										_hover={{
+											bg: 'blue.500'
+										}}
+									>
+										Sign in
+									</Button>
+								</Link>
 								<Text align={'center'}>
 									Need an account?{' '}
 									<Link color={'blue.400'} href='/signup'>

@@ -95,6 +95,14 @@ export default function SplitScreen() {
 					src={'/Home.svg'}
 				/>
 			</Link>
+			<Link href='/signup'>
+				<Image
+					alt={'Landing'}
+					objectFit={'cover'}
+					width={'100%'}
+					src={'/register.svg'}
+				/>
+			</Link>
 		</>
 	);
 }
