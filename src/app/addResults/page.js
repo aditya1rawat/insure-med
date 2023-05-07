@@ -69,6 +69,11 @@ export default function Page() {
 						<Button>Search</Button>
 					</Link>
 				</VStack>
+
+				<Hospital />
+				<Hospital />
+				<Hospital />
+				<Hospital />
 			</Box>
 		</>
 	);
