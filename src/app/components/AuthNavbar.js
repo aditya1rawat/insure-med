@@ -17,10 +17,11 @@ import {
 	Stack
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons';
+import Image from 'next/image';
 
 const Links = ['Dashboard', 'Projects', 'Team'];
 
-const NavLink = ({ children }: { children: ReactNode }) => (
+const NavLink = ({ children }) => (
 	<Link
 		px={2}
 		py={1}
@@ -54,7 +55,14 @@ export default function AuthNavbar() {
 						onClick={isOpen ? onClose : onOpen}
 					/>
 					<HStack spacing={8} alignItems={'center'}>
-						<Box>Logo</Box>
+						<Link href='/' passHref>
+							<Image
+								src='/Logo.png'
+								width={35}
+								height={35}
+								alt='Logo'
+							/>
+						</Link>
 						<HStack
 							as={'nav'}
 							spacing={4}
@@ -66,7 +74,7 @@ export default function AuthNavbar() {
 						</HStack>
 					</HStack>
 					<Flex alignItems={'center'}>
-						<Button
+						{/* <Button
 							variant={'solid'}
 							colorScheme={'teal'}
 							size={'sm'}
@@ -74,7 +82,7 @@ export default function AuthNavbar() {
 							leftIcon={<AddIcon />}
 						>
 							Action
-						</Button>
+						</Button> */}
 						<Menu>
 							<MenuButton
 								as={Button}
@@ -110,8 +118,6 @@ export default function AuthNavbar() {
 					</Box>
 				) : null}
 			</Box>
-
-			<Box p={4}>Main Content Here</Box>
 		</>
 	);
 }

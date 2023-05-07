@@ -3,10 +3,12 @@
 import React from 'react';
 import '../globals.css';
 import { Box } from '@chakra-ui/react';
+import AuthNavbar from '../components/AuthNavbar';
 
 export default function page() {
 	return (
 		<div>
+			<AuthNavbar />
 			<Box
 				style={{
 					background: 'center no-repeat url(/BackgroundGradient.png)'
