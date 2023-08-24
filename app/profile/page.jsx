@@ -39,12 +39,14 @@ export default function MyProfile() {
 	useEffect(() => {
 		getServiceProvider();
 		getProcedureCosts();
-	}, [getServiceProvider, getProcedureCosts]);
+		console.log(session?.user)
+	}, [session]);
 
 	return (
 		<Profile
 			name={session?.user.name}
 			email={session?.user.email}
+			serviceProvider={serviceProvider}
 			image={session?.user.image}
 			data={procedureCosts}
 		/>

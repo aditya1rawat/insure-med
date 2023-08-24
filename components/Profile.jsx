@@ -14,8 +14,10 @@ import {
 } from '@chakra-ui/react';
 
 import ProcedureCostProfileCard from './ProcedureCostProfileCard';
+import { useEffect } from 'react';
 
 export default function Profile({ name, email, image, serviceProvider, data }) {
+
 	return (
 		<Stack
 			mx={'auto'}
@@ -63,10 +65,10 @@ export default function Profile({ name, email, image, serviceProvider, data }) {
 					</Stack>
 
 					<Stack spacing={0} align={'center'}>
-						<Text fontWeight={600}>{serviceProvider}</Text>
 						<Text fontSize={'sm'} color={'gray.500'}>
 							Service Provider
 						</Text>
+						<Text fontWeight={600}>{serviceProvider}</Text>
 					</Stack>
 
 					<Button
@@ -88,9 +90,9 @@ export default function Profile({ name, email, image, serviceProvider, data }) {
 				</Box>
 			</Box>
 			<SimpleGrid columns={2} spacing={10}>
-				{data.map(procedureCost => {
-					console.log(procedureCost);
-					return <ProcedureCostProfileCard />;
+				{data.map(procedure => {
+					console.log(procedure._id);
+					return <ProcedureCostProfileCard procedureId={procedure._id} procedureName={procedure.procedure} cost={procedure.cost} />;
 				})}
 			</SimpleGrid>
 		</Stack>

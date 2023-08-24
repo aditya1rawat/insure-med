@@ -9,19 +9,44 @@ import {
 	Link,
 	Badge,
 	useColorModeValue,
-	Collapse
+	Collapse,
+	useDisclosure,
+	ModalOverlay,
+	Modal,
+	ModalContent,
+	ModalHeader,
+	ModalCloseButton,
+	ModalBody,
+	ModalFooter
 } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useSession } from 'next-auth/react';
+import React, { useState } from 'react';
 
-export default function ProcedureCostProfileCard() {
-	const [show, setShow] = useState(false);
+export default function ProcedureCostProfileCard({
+	procedureId,
+	procedureName,
+	cost
+}) {
+	const { data: session } = useSession();
 
-	const handleToggle = () => {
-		setShow(show => !show);
+	const handleSubmit = async () => {
+		const response = await fetch(`/api/procedureCost`, {
+			method: 'DELETE',
+			body: JSON.stringify({
+				_id: procedureId
+			})
+		});
+
+		if (response.ok) {
+			console.log('Successful Delete');
+			router.push('/');
+		} else {
+			console.log('Unsuccessful Delete');
+		}
 	};
 
 	return (
-		<Center py={6}>
+		<Center>
 			<Box
 				maxW={'320px'}
 				w={'full'}
@@ -29,39 +54,16 @@ export default function ProcedureCostProfileCard() {
 				boxShadow={'2xl'}
 				rounded={'lg'}
 				p={6}
+				textAlign={'center'}
 			>
 				<Heading fontSize={'2xl'} fontFamily={'body'}>
-					Procedure Name
+					{procedureName}
 				</Heading>
-				<Text fontWeight={600} color={'gray.500'}>
-					$ Cost
+				<Text fontWeight={600} color={'gray.500'} marginTop={'5'}>
+					${cost}
 				</Text>
 
-				<Heading fontSize={'md'} mt={5} mb={1}>
-					Extra Information
-				</Heading>
-				<Collapse
-					color={useColorModeValue('gray.700', 'gray.400')}
-					px={3}
-					startingHeight={50}
-					in={show}
-				>
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-					Cumque atque similique nam ducimus repudiandae eaque?
-					Reprehenderit repudiandae distinctio quam, cumque cum
-					molestias ipsa nemo explicabo aliquam quia voluptate a ex.
-				</Collapse>
-				<Text
-					fontSize='xs'
-					textAlign={'right'}
-					onClick={handleToggle}
-					mt='1'
-					cursor={'pointer'}
-				>
-					Show {show ? 'Less' : 'More'}
-				</Text>
-
-				<Stack mt={8} direction={'row'} spacing={4}>
+				{/* <Stack mt={8} direction={'row'} spacing={4}>
 					<Button
 						flex={1}
 						fontSize={'sm'}
@@ -83,10 +85,11 @@ export default function ProcedureCostProfileCard() {
 						boxShadow={
 							'0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
 						}
+						onClick={handleSubmit}
 					>
 						Delete
 					</Button>
-				</Stack>
+				</Stack> */}
 			</Box>
 		</Center>
 	);

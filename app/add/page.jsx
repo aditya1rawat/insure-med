@@ -14,7 +14,8 @@ import {
 	FormLabel,
 	Input,
 	InputGroup,
-	InputLeftElement
+	InputLeftElement,
+	Link
 } from '@chakra-ui/react';
 
 import { BsPerson } from 'react-icons/bs';
@@ -129,26 +130,38 @@ export default function Add() {
 													/>
 												</InputGroup>
 											</FormControl>
-											<FormControl
-												id='provider'
-												isDisabled={serviceProvider}
-											>
-												<FormLabel>Provider</FormLabel>
-												<InputGroup borderColor='#E0E1E7'>
-													<InputLeftElement
-														pointerEvents='none'
-														children={
-															<AiOutlineSafety />
-														}
-													/>
-													<Input
-														type='text'
-														size='md'
-														value={serviceProvider}
-													/>
-												</InputGroup>
-											</FormControl>
-											<FormControl id='name'>
+											{serviceProvider ? (
+												<FormControl
+													id='provider'
+													isDisabled
+												>
+													<FormLabel>
+														Provider
+													</FormLabel>
+													<InputGroup borderColor='#E0E1E7'>
+														<InputLeftElement
+															pointerEvents='none'
+															children={
+																<AiOutlineSafety />
+															}
+														/>
+
+														<Input
+															type='text'
+															size='md'
+															value={
+																serviceProvider
+															}
+														/>
+													</InputGroup>
+												</FormControl>
+											) : (
+												<Link href='/profile/edit'>
+													Set Your Service Provider
+												</Link>
+											)}
+
+											<FormControl id='name' isDisabled={!serviceProvider}>
 												<FormLabel>
 													Procedure Name
 												</FormLabel>
@@ -170,7 +183,10 @@ export default function Add() {
 													/>
 												</InputGroup>
 											</FormControl>
-											<FormControl id='name'>
+											<FormControl
+												id='name'
+												isDisabled={!serviceProvider}
+											>
 												<FormLabel>Cost</FormLabel>
 												<InputGroup borderColor='#E0E1E7'>
 													<InputLeftElement
@@ -194,6 +210,7 @@ export default function Add() {
 											<FormControl
 												id='name'
 												float='right'
+												isDisabled={!serviceProvider}
 											>
 												<Button
 													variant='solid'

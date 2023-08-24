@@ -26,8 +26,6 @@ import {
 	AiOutlineSearch
 } from 'react-icons/ai';
 
-const Links = ['About', 'Contact'];
-
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 
 const NavLink = ({ children }) => (
@@ -102,16 +100,14 @@ export default function Navbar() {
 							spacing={4}
 							display={{ base: 'none', md: 'flex' }}
 						>
-							{Links.map(link => (
-								<NavLink key={link}>{link}</NavLink>
-							))}
 							{session?.user ? (
 								<>
 									<Button
 										as={'a'}
 										href='/add'
 										variant={'solid'}
-										colorScheme={'teal'}
+										bgColor={'black'}
+										colorScheme='teal'
 										size={'sm'}
 										mr={4}
 										leftIcon={<AiOutlinePlus />}
@@ -189,16 +185,6 @@ export default function Navbar() {
 					</HStack>
 				</Flex>
 			</Flex>
-
-			{isOpen ? (
-				<Box pb={4} display={{ md: 'none' }}>
-					<Stack as={'nav'} spacing={4}>
-						{Links.map(link => (
-							<NavLink key={link}>{link}</NavLink>
-						))}
-					</Stack>
-				</Box>
-			) : null}
 		</Box>
 	);
 }
