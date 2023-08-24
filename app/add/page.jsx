@@ -73,7 +73,7 @@ export default function Add() {
 
 		if (response.ok) {
 			console.log('Successful add');
-			router.push('/');
+			router.push('/profile');
 		} else {
 			console.log('Unsuccessful');
 		}

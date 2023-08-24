@@ -49,7 +49,7 @@ export default function EditProfile() {
 		});
 		console.log('Getting response: ' + response.json());
 		if (response.ok) {
-			router.push('/');
+			router.push('/profile');
 		}
 	};
 

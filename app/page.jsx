@@ -2,14 +2,40 @@
 
 import Image from 'next/image';
 import { Box, Button, HStack, Heading } from '@chakra-ui/react';
+import { useState, useEffect } from 'react';
 
 import { BsSearch } from 'react-icons/bs';
 import { AiOutlineGoogle, AiOutlineSearch } from 'react-icons/ai';
 
-import { useSession } from 'next-auth/react';
+import { signIn, useSession, getProviders } from 'next-auth/react';
 
 export default function Home() {
 	const { data: session } = useSession();
+
+	const [providers, setProviders] = useState(null);
+
+	const [scrollY, setScrollY] = useState(0);
+
+	useEffect(() => {
+		const setUpProviders = async () => {
+			const response = await getProviders();
+
+			setProviders(response);
+		};
+
+		setUpProviders();
+
+		const handleScroll = () => {
+			setScrollY(window.scrollY);
+		};
+
+		handleScroll();
+
+		window.addEventListener('scroll', handleScroll);
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, []);
 
 	return (
 		<>
@@ -55,18 +81,31 @@ export default function Home() {
 									Search
 								</Button>
 							) : (
-								<Button
-									leftIcon={<AiOutlineGoogle />}
-									bgColor={'black'}
-									colorScheme='teal'
-									variant='solid'
-									size={'md'}
-									_hover={{
-										backgrouColor: 'black'
-									}}
-								>
-									Sign In
-								</Button>
+								<>
+									{providers &&
+										Object.values(providers).map(
+											provider => (
+												<Button
+													leftIcon={
+														<AiOutlineGoogle />
+													}
+													key={provider.name}
+													bgColor={'black'}
+													colorScheme='teal'
+													variant='solid'
+													size={'md'}
+													_hover={{
+														backgrouColor: 'black'
+													}}
+													onClick={() => {
+														signIn(provider.id);
+													}}
+												>
+													Sign In
+												</Button>
+											)
+										)}
+								</>
 							)}
 						</HStack>
 					</Box>
